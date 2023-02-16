@@ -1,0 +1,64 @@
+2023-02-09 12:09:23,570 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.dat.bas.BaseDatabaseType] (Test worker) Database: jdbc:postgresql://localhost:49158/test (PostgreSQL 11.11)
+2023-02-09 12:09:23,627 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbValidate] (Test worker) Successfully validated 5 migrations (execution time 00:00.027s)
+2023-02-09 12:09:23,650 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.sch.JdbcTableSchemaHistory] (Test worker) Creating Schema History table "public"."flyway_schema_history" ...
+2023-02-09 12:09:23,701 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Current version of schema "public": << Empty Schema >>
+2023-02-09 12:09:23,711 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.0.0 - init Quarkus Flyway"
+2023-02-09 12:09:23,749 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.2.0 -  Drop Table Quarkus"
+2023-02-09 12:09:23,772 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.0 - Create Table Quarkus"
+2023-02-09 12:09:23,797 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.1 - Rename Table Quarkus And Add Columns"
+2023-02-09 12:09:23,802 dell-g048793 GradleWorkerMain[28796] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:09:23,831 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.4.0 -  add Weather Table"
+2023-02-09 12:09:23,835 dell-g048793 GradleWorkerMain[28796] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:09:23,858 dell-g048793 GradleWorkerMain[28796] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Successfully applied 5 migrations to schema "public", now at version v1.4.0 (execution time 00:00.168s)
+2023-02-09 12:09:24,465 dell-g048793 GradleWorkerMain[28796] INFO  [io.quarkus] (Test worker) hibernate-demo 1.0-SNAPSHOT on JVM (powered by Quarkus 2.14.3.Final) started in 12.816s. Listening on: http://localhost:8081
+2023-02-09 12:09:24,465 dell-g048793 GradleWorkerMain[28796] INFO  [io.quarkus] (Test worker) Profile test activated. 
+2023-02-09 12:09:24,465 dell-g048793 GradleWorkerMain[28796] INFO  [io.quarkus] (Test worker) Installed features: [agroal, cache, cdi, flyway, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, quartz, rest-client, rest-client-jackson, resteasy, resteasy-jackson, scheduler, smallrye-context-propagation, smallrye-fault-tolerance, vertx]
+2023-02-09 12:09:25,849 dell-g048793 GradleWorkerMain[28796] INFO  [io.quarkus] (Test worker) hibernate-demo stopped in 0.384s
+2023-02-09 12:50:14,521 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.dat.bas.BaseDatabaseType] (Test worker) Database: jdbc:postgresql://localhost:49160/test (PostgreSQL 11.11)
+2023-02-09 12:50:14,578 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbValidate] (Test worker) Successfully validated 5 migrations (execution time 00:00.025s)
+2023-02-09 12:50:14,599 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.sch.JdbcTableSchemaHistory] (Test worker) Creating Schema History table "public"."flyway_schema_history" ...
+2023-02-09 12:50:14,652 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Current version of schema "public": << Empty Schema >>
+2023-02-09 12:50:14,663 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.0.0 - init Quarkus Flyway"
+2023-02-09 12:50:14,705 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.2.0 -  Drop Table Quarkus"
+2023-02-09 12:50:14,738 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.0 - Create Table Quarkus"
+2023-02-09 12:50:14,769 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.1 - Rename Table Quarkus And Add Columns"
+2023-02-09 12:50:14,776 dell-g048793 GradleWorkerMain[25416] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:50:14,814 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.4.0 -  add Weather Table"
+2023-02-09 12:50:14,818 dell-g048793 GradleWorkerMain[25416] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:50:14,844 dell-g048793 GradleWorkerMain[25416] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Successfully applied 5 migrations to schema "public", now at version v1.4.0 (execution time 00:00.201s)
+2023-02-09 12:50:15,532 dell-g048793 GradleWorkerMain[25416] INFO  [io.quarkus] (Test worker) hibernate-demo 1.0-SNAPSHOT on JVM (powered by Quarkus 2.14.3.Final) started in 9.466s. Listening on: http://localhost:8081
+2023-02-09 12:50:15,532 dell-g048793 GradleWorkerMain[25416] INFO  [io.quarkus] (Test worker) Profile test activated. 
+2023-02-09 12:50:15,532 dell-g048793 GradleWorkerMain[25416] INFO  [io.quarkus] (Test worker) Installed features: [agroal, cache, cdi, flyway, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, quartz, rest-client, rest-client-jackson, resteasy, resteasy-jackson, scheduler, smallrye-context-propagation, smallrye-fault-tolerance, vertx]
+2023-02-09 12:50:16,886 dell-g048793 GradleWorkerMain[25416] INFO  [io.quarkus] (Test worker) hibernate-demo stopped in 0.238s
+2023-02-09 12:52:45,649 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.dat.bas.BaseDatabaseType] (Test worker) Database: jdbc:postgresql://localhost:49162/test (PostgreSQL 11.11)
+2023-02-09 12:52:45,699 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbValidate] (Test worker) Successfully validated 5 migrations (execution time 00:00.023s)
+2023-02-09 12:52:45,717 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.sch.JdbcTableSchemaHistory] (Test worker) Creating Schema History table "public"."flyway_schema_history" ...
+2023-02-09 12:52:45,760 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Current version of schema "public": << Empty Schema >>
+2023-02-09 12:52:45,767 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.0.0 - init Quarkus Flyway"
+2023-02-09 12:52:45,793 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.2.0 -  Drop Table Quarkus"
+2023-02-09 12:52:45,811 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.0 - Create Table Quarkus"
+2023-02-09 12:52:45,831 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.1 - Rename Table Quarkus And Add Columns"
+2023-02-09 12:52:45,836 dell-g048793 GradleWorkerMain[28176] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:52:45,860 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.4.0 -  add Weather Table"
+2023-02-09 12:52:45,863 dell-g048793 GradleWorkerMain[28176] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:52:45,881 dell-g048793 GradleWorkerMain[28176] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Successfully applied 5 migrations to schema "public", now at version v1.4.0 (execution time 00:00.128s)
+2023-02-09 12:52:46,434 dell-g048793 GradleWorkerMain[28176] INFO  [io.quarkus] (Test worker) hibernate-demo 1.0-SNAPSHOT on JVM (powered by Quarkus 2.14.3.Final) started in 10.779s. Listening on: http://localhost:8081
+2023-02-09 12:52:46,435 dell-g048793 GradleWorkerMain[28176] INFO  [io.quarkus] (Test worker) Profile test activated. 
+2023-02-09 12:52:46,435 dell-g048793 GradleWorkerMain[28176] INFO  [io.quarkus] (Test worker) Installed features: [agroal, cache, cdi, flyway, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, quartz, rest-client, rest-client-jackson, resteasy, resteasy-jackson, scheduler, smallrye-context-propagation, smallrye-fault-tolerance, vertx]
+2023-02-09 12:52:47,814 dell-g048793 GradleWorkerMain[28176] INFO  [io.quarkus] (Test worker) hibernate-demo stopped in 0.392s
+2023-02-09 12:54:33,122 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.dat.bas.BaseDatabaseType] (Test worker) Database: jdbc:postgresql://localhost:49164/test (PostgreSQL 11.11)
+2023-02-09 12:54:33,171 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbValidate] (Test worker) Successfully validated 5 migrations (execution time 00:00.023s)
+2023-02-09 12:54:33,190 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.sch.JdbcTableSchemaHistory] (Test worker) Creating Schema History table "public"."flyway_schema_history" ...
+2023-02-09 12:54:33,234 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Current version of schema "public": << Empty Schema >>
+2023-02-09 12:54:33,242 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.0.0 - init Quarkus Flyway"
+2023-02-09 12:54:33,273 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.2.0 -  Drop Table Quarkus"
+2023-02-09 12:54:33,292 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.0 - Create Table Quarkus"
+2023-02-09 12:54:33,311 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.3.1 - Rename Table Quarkus And Add Columns"
+2023-02-09 12:54:33,316 dell-g048793 GradleWorkerMain[23080] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:54:33,339 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Migrating schema "public" to version "1.4.0 -  add Weather Table"
+2023-02-09 12:54:33,343 dell-g048793 GradleWorkerMain[23080] WARN  [org.fly.cor.int.sql.DefaultSqlScriptExecutor] (Test worker) DB: there is already a transaction in progress (SQL State: 25001 - Error Code: 0)
+2023-02-09 12:54:33,361 dell-g048793 GradleWorkerMain[23080] INFO  [org.fly.cor.int.com.DbMigrate] (Test worker) Successfully applied 5 migrations to schema "public", now at version v1.4.0 (execution time 00:00.137s)
+2023-02-09 12:54:33,905 dell-g048793 GradleWorkerMain[23080] INFO  [io.quarkus] (Test worker) hibernate-demo 1.0-SNAPSHOT on JVM (powered by Quarkus 2.14.3.Final) started in 8.884s. Listening on: http://localhost:8081
+2023-02-09 12:54:33,906 dell-g048793 GradleWorkerMain[23080] INFO  [io.quarkus] (Test worker) Profile test activated. 
+2023-02-09 12:54:33,906 dell-g048793 GradleWorkerMain[23080] INFO  [io.quarkus] (Test worker) Installed features: [agroal, cache, cdi, flyway, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, quartz, rest-client, rest-client-jackson, resteasy, resteasy-jackson, scheduler, smallrye-context-propagation, smallrye-fault-tolerance, vertx]
+2023-02-09 12:54:35,278 dell-g048793 GradleWorkerMain[23080] INFO  [io.quarkus] (Test worker) hibernate-demo stopped in 0.381s
