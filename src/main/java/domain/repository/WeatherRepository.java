@@ -14,10 +14,11 @@ public interface WeatherRepository {
     void delete(UUID id);
     Optional<Weather> find(UUID id);
     Weather findOrFail(UUID id);
-    PagedResult<Weather> all(int pageIndex);
+    PagedResult<Weather> allPaged(int pageIndex);
     List<Town> getTownsWithMaxWeatherEntries();
     List<String> getTownNamesWithMaxWeatherEntries();
     Map<String, Integer> getTownNoOfEntriesMap();
     List<UUID> getTownIdsWithMaxWeatherEntries();
     List<Weather> getCountryEntriesList(String country);
+    List<Weather> all();
 }

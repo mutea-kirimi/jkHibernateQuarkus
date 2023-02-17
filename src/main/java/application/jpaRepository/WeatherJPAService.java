@@ -47,7 +47,7 @@ public class WeatherJPAService implements WeatherRepository, PanacheRepositoryBa
     }
 
     @Override
-    public PagedResult<Weather> all(int pageIndex) {
+    public PagedResult<Weather> allPaged(int pageIndex) {
         PanacheQuery<Weather> page = this.findAll(Sort.descending("updatedAt")).page(pageIndex, DEFAULT_PAGE_SIZE );
         var total = ((BigInteger) getEntityManager().createNativeQuery(
                 "select count(*) from current_weather;"
@@ -114,6 +114,11 @@ public class WeatherJPAService implements WeatherRepository, PanacheRepositoryBa
 
     public List<Weather> getCountryEntriesList(String country){
         return this.find("country = ?1", country).list();
+    }
+
+    @Override
+    public List<Weather> all() {
+        return this.listAll();
     }
 
 }

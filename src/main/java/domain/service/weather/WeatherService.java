@@ -81,7 +81,13 @@ public class WeatherService implements CachableWeatherService {
         // implemented by annotation
     }
 
-    public PagedResult<Weather> all(int idx) {
-        return weatherRepository.all(idx);
+    @Override
+    public PagedResult<Weather> allPaged(int idx) {
+        return weatherRepository.allPaged(idx);
+    }
+
+    @Override
+    public List<Weather> all() {
+        return weatherRepository.all();
     }
 }

@@ -5,17 +5,20 @@ import domain.common.exceptions.NotPresentException;
 import domain.common.paging.PagedResult;
 import domain.model.town.Town;
 import domain.model.weather.Weather;
+import domain.service.ExcelExporterService;
 import domain.service.town.TownService;
 import domain.service.weather.WeatherImportService;
 import domain.service.weather.WeatherService;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +35,8 @@ public class WeatherResourceTestingWeatherClient {
     TownService townService;
     @Inject
     WeatherService weatherService;
+    @Inject
+    ExcelExporterService<Weather> weatherExcelExporterService;
 
     @GET
     @Path("{city}")
@@ -73,7 +78,22 @@ public class WeatherResourceTestingWeatherClient {
     @Path("list/{index}")
     @Produces(MediaType.APPLICATION_JSON)
     public PagedResult<Weather> all(@PathParam("index") int idx) {
-        return weatherService.all(idx);
+        return weatherService.allPaged(idx);
+    }
+
+    @GET
+    @Path("list/excel-export")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response export() {
+       try{
+           var excelResult = weatherExcelExporterService.export();
+           var suffix = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+           return Response.ok(new ByteArrayInputStream(excelResult.toByteArray()))
+                   .header("Content-Disposition", "attachment; filename=\"weather("+suffix+").xlsx\"")
+                   .build();
+       }catch (Exception e){
+           throw new ServerErrorException(Response.Status.INTERNAL_SERVER_ERROR);
+       }
     }
 
 

@@ -38,12 +38,23 @@ dependencies {
     //?
     implementation( "org.assertj:assertj-core:3.11.1")
 
+    //Excel Processing dependencies
+    /*
+    * Apache POI is a Java library for working with Microsoft Office documents such as Excel, Word, and PowerPoint. It provides a set of APIs that enable developers to create, read, and modify Office documents programmatically.
+    Apache POI-OOXML, on the other hand, is a subproject of Apache POI that specifically focuses on working with Office Open XML (OOXML) format documents. OOXML is the default file format used by Microsoft Office applications since 2007, and it is based on XML and ZIP archive technologies.
+    While Apache POI provides support for both the binary and OOXML file formats, Apache POI-OOXML provides additional APIs and functionality specifically designed for working with OOXML format files. This includes support for working with Excel files that have the .xlsx extension, as well as Word and PowerPoint files in their respective XML-based formats.
+    So, in summary, Apache POI is a general-purpose Java library for working with Microsoft Office documents, while Apache POI-OOXML is a specific subproject of Apache POI that provides specialized support for working with Office Open XML format documents.
+    * */
+    implementation("org.apache.poi:poi:5.2.3")
+    implementation("org.apache.poi:poi-ooxml:5.2.3")
+
     //test dependencies
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.quarkus:quarkus-junit5-mockito")
     testImplementation("io.rest-assured:rest-assured")
     testImplementation("org.testcontainers:postgresql")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.0.0-rc1") // for testing architecture
+
 }
 
 group = "com.example"
