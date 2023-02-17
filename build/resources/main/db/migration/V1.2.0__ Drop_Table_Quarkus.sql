@@ -1,1 +1,0 @@
-Drop Table if exists quarkus;
