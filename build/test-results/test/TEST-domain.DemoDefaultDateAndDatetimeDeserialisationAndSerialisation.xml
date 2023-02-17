@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.DemoDefaultDateAndDatetimeDeserialisationAndSerialisation" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-16T13:30:12" hostname="DELL-G048793" time="0.551">
-  <properties/>
-  <testcase name="testDefaultDeserialization_ThenSuccess()" classname="domain.DemoDefaultDateAndDatetimeDeserialisationAndSerialisation" time="0.521"/>
-  <testcase name="testDefaultSerialization_ThenSuccess()" classname="domain.DemoDefaultDateAndDatetimeDeserialisationAndSerialisation" time="0.029"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

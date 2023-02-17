@@ -1,6 +1,7 @@
-hibernate-demo/build/
+
 build/
 .gradle/
+logs/
 frontend/node_modules/
 frontend/dist/
 .idea
