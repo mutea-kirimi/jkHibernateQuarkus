@@ -16,9 +16,10 @@ import java.util.stream.IntStream;
 /*This is an Abstract class to export any type of object list to excel ! */
 
 public abstract class ExcelExporter<T> implements ExcelExporterService<T> {
-    private List<Field> excelFields;
+    private List<ExcelField> excelFields;
 
-    public ExcelExporter(Field<T>... excelFields) {
+    @SafeVarargs
+    public ExcelExporter(ExcelField<T>... excelFields) {
         this.excelFields = Arrays.asList(excelFields);
     }
 
@@ -37,7 +38,7 @@ public abstract class ExcelExporter<T> implements ExcelExporterService<T> {
         return outputStream;
     }
 
-    private void writeHeader(Row row, int cellIndex, Field<T> field) {
+    private void writeHeader(Row row, int cellIndex, ExcelField<T> field) {
         row.createCell(cellIndex, CellType.STRING).setCellValue(field.header());
     }
 

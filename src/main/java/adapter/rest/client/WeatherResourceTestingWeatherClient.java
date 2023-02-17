@@ -5,6 +5,7 @@ import domain.common.exceptions.NotPresentException;
 import domain.common.paging.PagedResult;
 import domain.model.town.Town;
 import domain.model.weather.Weather;
+import domain.service.CsvExporterService;
 import domain.service.ExcelExporterService;
 import domain.service.town.TownService;
 import domain.service.weather.WeatherImportService;
@@ -15,8 +16,9 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import javax.ws.rs.core.StreamingOutput;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -36,7 +38,9 @@ public class WeatherResourceTestingWeatherClient {
     @Inject
     WeatherService weatherService;
     @Inject
-    ExcelExporterService<Weather> weatherExcelExporterService;
+    ExcelExporterService<Weather> excelExporterService;
+    @Inject
+    CsvExporterService<Weather> csvExporterService;
 
     @GET
     @Path("{city}")
@@ -84,9 +88,9 @@ public class WeatherResourceTestingWeatherClient {
     @GET
     @Path("list/excel-export")
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response export() {
+    public Response exportExcel() {
        try{
-           var excelResult = weatherExcelExporterService.export();
+           var excelResult = excelExporterService.export();
            var suffix = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
            return Response.ok(new ByteArrayInputStream(excelResult.toByteArray()))
                    .header("Content-Disposition", "attachment; filename=\"weather("+suffix+").xlsx\"")
@@ -94,6 +98,28 @@ public class WeatherResourceTestingWeatherClient {
        }catch (Exception e){
            throw new ServerErrorException(Response.Status.INTERNAL_SERVER_ERROR);
        }
+    }
+
+    @GET
+    @Path("list/csv-export")
+    @Produces("text/csv")
+    public Response exportCsv() {
+        var resultString = csvExporterService.export();
+        var responseBuilder = Response.ok((StreamingOutput) output -> {
+            try (
+                    Writer writer = new BufferedWriter(new OutputStreamWriter(output, StandardCharsets.ISO_8859_1))
+            ) {
+                try {
+                    writer.write(resultString);
+                    writer.flush();
+                } catch (IOException e) {
+                    throw new ServerErrorException(Response.Status.INTERNAL_SERVER_ERROR);
+                }
+
+            }
+        });
+        responseBuilder.header("Content-Disposition", "attachment; filename=\"weatherCSV.csv\"");
+        return responseBuilder.build();
     }
 
 

@@ -48,7 +48,7 @@ public class WeatherJPAService implements WeatherRepository, PanacheRepositoryBa
 
     @Override
     public PagedResult<Weather> allPaged(int pageIndex) {
-        PanacheQuery<Weather> page = this.findAll(Sort.descending("updatedAt")).page(pageIndex, DEFAULT_PAGE_SIZE );
+        PanacheQuery<Weather> page = this.findAll(Sort.ascending("updatedAt")).page(pageIndex, DEFAULT_PAGE_SIZE );
         var total = ((BigInteger) getEntityManager().createNativeQuery(
                 "select count(*) from current_weather;"
         ).getSingleResult()).intValue();

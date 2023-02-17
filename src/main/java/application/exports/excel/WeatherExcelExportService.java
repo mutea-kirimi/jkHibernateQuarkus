@@ -1,7 +1,7 @@
 package application.exports.excel;
 
 import application.exports.ExcelExporter;
-import application.exports.Field;
+import application.exports.ExcelField;
 import domain.model.weather.Weather;
 import domain.service.weather.WeatherService;
 
@@ -23,23 +23,23 @@ public class WeatherExcelExportService extends ExcelExporter<Weather> {
 
     public WeatherExcelExportService() {
         super(
-                new Field.StringField<>("Name", (weather) -> weather.getLocation().getName()),
-                new Field.StringField<>("Country", (weather) -> weather.getLocation().getCountry()),
-                new Field.StringField<>("Region", (weather) -> weather.getLocation().getRegion()),
-                new Field.DoubleField<>("Latitude", (weather) -> weather.getLocation().getLat()),
-                new Field.DoubleField<>("Longitude", (weather) -> weather.getLocation().getLon()),
-                new Field.StringField<>("Timezone", (weather) -> weather.getLocation().getTimezone_id()),
-                new Field.DateTimeField<>("Time", (weather -> weather.getLocation().getLocalDateTime())),
-                new Field.StringField<>("Weather-Descriptions", (weather) -> {
+                new ExcelField.StringField<>("Name", (weather) -> weather.getLocation().getName()),
+                new ExcelField.StringField<>("Country", (weather) -> weather.getLocation().getCountry()),
+                new ExcelField.StringField<>("Region", (weather) -> weather.getLocation().getRegion()),
+                new ExcelField.DoubleField<>("Latitude", (weather) -> weather.getLocation().getLat()),
+                new ExcelField.DoubleField<>("Longitude", (weather) -> weather.getLocation().getLon()),
+                new ExcelField.StringField<>("Timezone", (weather) -> weather.getLocation().getTimezone_id()),
+                new ExcelField.DateTimeField<>("Time", (weather -> weather.getLocation().getLocalDateTime())),
+                new ExcelField.StringField<>("Weather-Descriptions", (weather) -> {
                     return weather.getCurrent().getWeather_descriptions().stream()
                             .collect(Collectors.joining(", "));
                 }),
-                new Field.IntegerField<>("Wind-Speed", (weather -> weather.getCurrent().getWind_speed())),
-                new Field.IntegerField<>("Wind-Degree", (weather -> weather.getCurrent().getWind_degree())),
-                new Field.IntegerField<>("Humidity", (weather -> weather.getCurrent().getHumidity())),
-                new Field.IntegerField<>("Temprature", (weather -> weather.getCurrent().getTemprature())),
-                new Field.IntegerField<>("Precipitation", (weather -> weather.getCurrent().getPrecip())),
-                new Field.IntegerField<>("Pressure", (weather -> weather.getCurrent().getPressure()))
+                new ExcelField.IntegerField<>("Wind-Speed", (weather -> weather.getCurrent().getWind_speed())),
+                new ExcelField.IntegerField<>("Wind-Degree", (weather -> weather.getCurrent().getWind_degree())),
+                new ExcelField.IntegerField<>("Humidity", (weather -> weather.getCurrent().getHumidity())),
+                new ExcelField.IntegerField<>("Temprature", (weather -> weather.getCurrent().getTemprature())),
+                new ExcelField.IntegerField<>("Precipitation", (weather -> weather.getCurrent().getPrecip())),
+                new ExcelField.IntegerField<>("Pressure", (weather -> weather.getCurrent().getPressure()))
         );
     }
 
