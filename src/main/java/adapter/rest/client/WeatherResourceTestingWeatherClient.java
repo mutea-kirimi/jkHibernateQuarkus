@@ -1,6 +1,7 @@
 package adapter.rest.client;
 
 import adapter.rest.dto.WeatherDto;
+import application.LogService;
 import domain.common.exceptions.NotPresentException;
 import domain.common.paging.PagedResult;
 import domain.model.town.Town;
@@ -11,6 +12,7 @@ import domain.service.town.TownService;
 import domain.service.weather.WeatherImportService;
 import domain.service.weather.WeatherService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -41,6 +43,8 @@ public class WeatherResourceTestingWeatherClient {
     ExcelExporterService<Weather> excelExporterService;
     @Inject
     CsvExporterService<Weather> csvExporterService;
+    @Inject
+    LogService logService;
 
     @GET
     @Path("{city}")
@@ -102,24 +106,28 @@ public class WeatherResourceTestingWeatherClient {
 
     @GET
     @Path("list/csv-export")
-    @Produces("text/csv")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response exportCsv() {
         var resultString = csvExporterService.export();
-        var responseBuilder = Response.ok((StreamingOutput) output -> {
-            try (
-                    Writer writer = new BufferedWriter(new OutputStreamWriter(output, StandardCharsets.ISO_8859_1))
-            ) {
-                try {
-                    writer.write(resultString);
-                    writer.flush();
-                } catch (IOException e) {
-                    throw new ServerErrorException(Response.Status.INTERNAL_SERVER_ERROR);
-                }
+        try{
+            var bytes = resultString.getBytes(StandardCharsets.ISO_8859_1);
+            return Response.ok(new ByteArrayInputStream(bytes))
+                    .header("Content-Disposition", "attachment; filename=\"weatherCSV.csv\"")
+                    .build();
+        }catch (Exception e){
+            throw new ServerErrorException(Response.Status.INTERNAL_SERVER_ERROR);
+        }
+    }
 
-            }
-        });
-        responseBuilder.header("Content-Disposition", "attachment; filename=\"weatherCSV.csv\"");
-        return responseBuilder.build();
+    @GET
+    @Path("/logs")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    @Transactional
+    public Response logs() {
+        return Response
+                .ok(new ByteArrayInputStream(logService.getLogFileContent()))
+                .header("Content-Disposition", "attachment; filename=\"" + "logs_" + LocalDateTime.now() + ".log" + "\"")
+                .build();
     }
 
 
